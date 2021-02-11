@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1043054958801",
+    "project_id": "mynotes-192ff",
+    "storage_bucket": "mynotes-192ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043054958801:android:82e1ba32e9c5c32fc8cdf0",
+        "android_client_info": {
+          "package_name": "com.pingoo.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043054958801-sjiii75j5oh5vne0bkdv06oacpu23vbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pingoo.mynotes",
+            "certificate_hash": "6ba7c2ebe055e4a90cf2c2f10a6614e821b4f9b2"
+          }
+        },
+        {
+          "client_id": "1043054958801-s78g82apunfu2iorgjv4hsm06vkuqb8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmW3gDIKZX5AXrM3CWXcYe8_Bwbevaoyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043054958801-s78g82apunfu2iorgjv4hsm06vkuqb8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
