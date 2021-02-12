@@ -4,20 +4,28 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
     private Context mContext;
     private ArrayList<NotesItem> mNotesList;
+    private DatabaseReference mDatabase;
 
     public NotesAdapter(Context mContext, ArrayList<NotesItem> mNotesList) {
         this.mContext = mContext;
         this.mNotesList = mNotesList;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @NonNull
@@ -33,9 +41,17 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
         String title = currentItem.getTitle();
         String content = currentItem.getContent();
+        final String ID = currentItem.getId();
 
         holder.mTitle.setText(title);
         holder.mContent.setText(content);
+
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase.child("notes").child(ID).removeValue();
+            }
+        });
     }
 
     @Override
@@ -45,12 +61,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     public class NotesViewHolder extends RecyclerView.ViewHolder {
         public TextView mTitle, mContent;
+        public ImageView mImageView;
 
         public NotesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mTitle = itemView.findViewById(R.id.text_view_title);
             mContent = itemView.findViewById(R.id.text_view_content);
+            mImageView = itemView.findViewById(R.id.imageView);
         }
     }
 }
